@@ -26,13 +26,44 @@ def main():
         selection = input("\nEnter Option #: ")
         if selection == "1":
             for i in range(len(account_list)):
-                print("Account " + str(i) + ": $" + str(account_list[i]))
+                print(f"Account {str(i)}: ${str(account_list[i])}")
+        # Deposit Option
         elif selection == "2":
             print("\nDEPOSIT")
-            deposit_input = input("Enter Account #: ")
+            deposit_account_input = input("Enter Account #: ")
+            for i in range(len(account_list)):    
+                if deposit_account_input == str(i):            
+                    deposit_amount = input("Enter amount to deposit: $")
+                    new_balance_after_deposit = account_list[i] + int(deposit_amount)
+                    print (f"Account {str(i)} Previous Balance: ${str(account_list[i])}")
+                    print (f"Account {str(i)} New Balance: ${str(new_balance_after_deposit)}")
+                    account_list[i] = new_balance_after_deposit
+        # Withdrawal Option
+        elif selection == "3":
+            print("\nWITHDRAWAL")
+            withdrawal_account_input = input("Enter Account #: ")
             for i in range(len(account_list)):
-                print("hi")
-            
+                if withdrawal_account_input == str(i):
+                    withdrawal_amount = input("Enter amount to withdraw: $")
+                    new_balance_after_withdrawal = account_list[i] - int(withdrawal_amount)
+                    if new_balance_after_withdrawal < 0:
+                        print("Sorry, insuffiecient funds.")
+                    else:
+                        print(f"Account {str(i)} Previous Balance: ${str(account_list[i])}")
+                        print(f"Account {str(i)} New Balance: ${str(new_balance_after_withdrawal)}")
+                        account_list[i] = new_balance_after_withdrawal
+        # Count Under $2000
+        elif selection == "4":
+            print("\nCOUNT UNDER $2000")
+            under_2000_count = 0
+            for i in range(len(account_list)):
+                if account_list[i] < 2000:
+                    print(f"Account {str(i)}: ${account_list[i]}")
+                    under_2000_count += 1
+                    print(f"Accounts with less than $2000: {str(under_2000_count)}")
+        # Generous Donor
+        elif selection =="5":
+            print("GENEROUS DONOR")
 
         elif selection == "7":
             done = True

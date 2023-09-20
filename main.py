@@ -58,12 +58,23 @@ def main():
             under_2000_count = 0
             for i in range(len(account_list)):
                 if account_list[i] < 2000:
-                    print(f"Account {str(i)}: ${account_list[i]}")
                     under_2000_count += 1
+                    print(f"Account {str(i)}: ${account_list[i]}")
                     print(f"Accounts with less than $2000: {str(under_2000_count)}")
         # Generous Donor
         elif selection =="5":
             print("GENEROUS DONOR")
+            accounts_donated_count = 0
+            total_amount_donated = 0
+            for i in range(len(account_list)):
+                if account_list[i] < 2000:
+                    accounts_donated_count += 1
+                    total_amount_donated += 500
+                    new_balance_after_donor = account_list[i] + 500
+                    print(f"Account {str(i)} Previous Balance: ${str(account_list[i])}")
+                    print(f"Account {str(i)} New Balance: ${str(new_balance_after_donor)}")
+            print(f"Number of accounts donated to {accounts_donated_count}, Total amount donated ${total_amount_donated}")
+
 
         elif selection == "7":
             done = True

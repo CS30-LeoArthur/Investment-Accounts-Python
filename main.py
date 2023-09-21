@@ -73,9 +73,17 @@ def main():
                     new_balance_after_donor = account_list[i] + 500
                     print(f"Account {str(i)} Previous Balance: ${str(account_list[i])}")
                     print(f"Account {str(i)} New Balance: ${str(new_balance_after_donor)}")
+                    account_list[i] += 500
             print(f"Number of accounts donated to {accounts_donated_count}, Total amount donated ${total_amount_donated}")
-
-
+        # Hacker Attack
+        elif selection == "6":
+            print("HACKER ATTACK")
+            total_amount_stolen = 0
+            for i in range(len(account_list)):
+                total_amount_stolen += account_list[i] * 0.05
+                account_list[i] = account_list[i] - account_list[i] * 0.05
+            print(f"Total stolen is: ${total_amount_stolen}")
+        # Exit
         elif selection == "7":
             done = True
 
